@@ -1,0 +1,5 @@
+enum GameState
+{
+    World,
+    Combat
+}
