@@ -12,7 +12,7 @@ public class StatModifier
 
     public object Source;
 
-    public StatModifier(float value, StatModifierType type, object source)
+    public StatModifier(int value, StatModifierType type, object source)
     {
         Value = value;
         Type = type;

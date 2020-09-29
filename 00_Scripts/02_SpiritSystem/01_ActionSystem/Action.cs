@@ -13,7 +13,7 @@ public class Action
 
     public void Execute()           //méthode appelée par la résolveliste
     {
-        SpiritBehaviour[] _targets = action.Targeting.Execute();
-        action.Effect.Execute(Source , _targets);
+        SpiritBehaviour[] _targets = Targeting.Execute();
+        Effect.Execute(this , _targets);
     }
 }

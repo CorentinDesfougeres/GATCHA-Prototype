@@ -9,22 +9,22 @@ class AlterationBehaviour : MonoBehaviour
     public SpiritBehaviour Source;
     public SpiritBehaviour Host;
 
-    OnEnable()
+    public void OnEnable()
     {
         foreach (Action action in Data.Actions)
         {
             action.Declare();
         }
-        if (Data.Lifespan == AlterationLifespan.Combat && GameManager.GameState == GameState.Combat)
+        if (Data.Lifespan == AlterationLifespan.Combat && GameManager.Current.GameState == GameStateId.Combat)
         {
-            CombatManager.current.OnCombatEnd += Destroy(this); //matcheras pas, il faudrait une fonction avec les bons arguments, mais c'est l'idée
+            ;//CombatManager.Current.OnCombatEnd += Destroy(this); //matcheras pas, il faudrait une fonction avec les bons arguments, mais c'est l'idée
         }
     }
 
     public event EventHandler OnLeave;
-    OnDisable()
+    public void OnDisable()
     {
-        if (OnLeave =! null)
+        if (OnLeave != null)
         {
             OnLeave(this, EventArgs.Empty);
         }

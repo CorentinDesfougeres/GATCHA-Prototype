@@ -1,4 +1,4 @@
-enum AlterationLifespan
+public enum AlterationLifespan
 {
     Combat,
     Scene,

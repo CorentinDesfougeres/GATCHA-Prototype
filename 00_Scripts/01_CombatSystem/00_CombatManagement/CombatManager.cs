@@ -4,17 +4,17 @@ using System.Collections.Generic;
 
 public class CombatManager : MonoBehaviour
 {
-    public static CombatManager current;
+    public static CombatManager Current;
     public void Awake()
     {
-        if (current == null)
+        if (Current == null)
         {
-            current = this;
+            Current = this;
             DontDestroyOnLoad(this.gameObject);
         }
         else
         {
-            Object.Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 
@@ -22,7 +22,7 @@ public class CombatManager : MonoBehaviour
 
     public int Tick;
     public int TickSpeed;
-    public bool isCBT;
+    public bool isCTB;
 
     private float tickDebt;
 
@@ -30,32 +30,45 @@ public class CombatManager : MonoBehaviour
 
     public void FixedUpdate()
     {
-        tickDebt += Time.DeltaTime * TickSpeed;
-        while (State == CombatState.ticking && tickDebt >= 1)
+        if (isCTB)
         {
-            if (isCBT)
-            {
-                TickingCBT();
-            }
-            else
-            {
-                TickingATB();
-            }
+            TickingCTB();
+        }
+        else
+        {
+            TickingATB();
         }
     }
 
     public void TickingATB()
     {
-        Tick ++;
-        TimeDebt --;
+        tickDebt += Time.deltaTime * TickSpeed;
 
+        while (State == CombatState.ticking && tickDebt >= 1)
+        {
+            Tick ++;
+            tickDebt --;
+            TickOnce();
+        }
+    }
+
+    public void TickingCTB()                       //  /!\  crash si TickOnce() ne fait pas sortir de CombatState.Ticking !
+    {
+        while (State == CombatState.ticking)
+        {
+            TickOnce();
+        }
+    }
+
+    public void TickOnce()
+    {
         foreach (Team _team in Teams)
         {
             foreach (CombatParticipant _participant in _team.FieldMembers)
             {
-                _participant.ActionPoints = +_participant.Spirit.Stats[StatId.Speed];
+                _participant.ActionPoints += _participant.Spirit.Stats[(int)StatId.Speed].Value;
 
-                if (_participant.ActionPoints >= GameManager.current.GameParameters.ActionTreshold)
+                if (_participant.ActionPoints >= GameManager.Current.GameParameters.ActionTreshold)
                 {
                     
                 }
@@ -70,7 +83,7 @@ public class CombatManager : MonoBehaviour
     public event EventHandler OnCombatStart;
     public void StartCombat()   //Faire dans le OnEnable?
     {
-        if (OnCombatEnd =! null)
+        if (OnCombatEnd != null)
         {
             OnCombatStart(this, EventArgs.Empty);
         }
@@ -81,7 +94,7 @@ public class CombatManager : MonoBehaviour
     public event EventHandler OnCombatEnd;
     public void LeaveCombat()  //Faire dans le OnDisable ?
     {
-        if (OnCombatEnd =! null)
+        if (OnCombatEnd != null)
         {
             OnCombatEnd(this, EventArgs.Empty);
         }

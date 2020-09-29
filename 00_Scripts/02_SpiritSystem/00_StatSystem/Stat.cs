@@ -47,11 +47,7 @@ public class Stat
     }
     public int CompareModifierOrder(StatModifier modA, StatModifier modB)
     {
-        if (modA.Target == modB.Target)
-        {
-            return modA.Type - modB.Type;
-        }
-        return modA.Target - modB.Target;
+        return modA.Type - modB.Type;
     }
     public bool RemoveModifier(StatModifier modifier)
     {
@@ -107,7 +103,7 @@ public class Stat
             else if (StatModifiers[i].Type == StatModifierType.PercentAdd)
             {
                 _sumPercentAdd += StatModifiers[i].Value;
-                if (i + 1 > StatModifiers.Count || StatModifiers[i + 1].Type != StatModifierType.PercentAdd || StatModifiers[i + 1].Target != StatModifierTarget.Value)
+                if (i + 1 > StatModifiers.Count || StatModifiers[i + 1].Type != StatModifierType.PercentAdd)
                 {
                     _effectiveValue *= 1 + _sumPercentAdd/100;
                     _sumPercentAdd = 0;
@@ -123,12 +119,10 @@ public class Stat
     }
 
 
-    public StatInstance(int value = 0)
+    public Stat(int value = 0)
     {
         StatModifiers = new List<StatModifier>();
 
         baseValue = value;
-
-        isDirty = true;
     }
 }

@@ -3,22 +3,22 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager current;
+    public static GameManager Current;
     public void Awake()
     {
-        if (current == null)
+        if (Current == null)
         {
-            current = this;
+            Current = this;
             DontDestroyOnLoad(this.gameObject);
         }
         else
         {
-            Object.Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 
     public GameParameters GameParameters;
 
-    public GameState GameState;
+    public GameStateId GameState;
     
 }

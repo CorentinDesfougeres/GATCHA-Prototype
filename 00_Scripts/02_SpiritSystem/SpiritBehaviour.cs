@@ -10,9 +10,9 @@ public class SpiritBehaviour : MonoBehaviour
 
     public void UpdateStats()
     {
-        for (int i = 0; i <= Stats.LastIndexOf; i++)
+        for (int i = 0; i < Stats.Count; i++)
         {
-            Stats[i].SetBaseValue( Specie.BaseStats[i] * Specie.GrowthFactor[i]^(Level-1) );
+            Stats[i].SetBaseValue( Specie.BaseStats[i] * Specie.GrowthFactors[i]^(Level-1) );
         }
     }
 
