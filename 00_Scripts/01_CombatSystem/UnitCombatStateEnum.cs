@@ -1,4 +1,4 @@
-public enum CombatParticipantState
+public enum UnitCombatState
 {
     waiting,
     preparation,

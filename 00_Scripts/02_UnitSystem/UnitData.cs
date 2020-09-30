@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class SpecieData : ScriptableObject
+public class UnitData : ScriptableObject
 {
     public string Name;
     public string Description;

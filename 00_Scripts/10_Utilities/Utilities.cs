@@ -1,4 +1,4 @@
-// Enums used everywhere :
+using System;
 
 public enum Origine
 {
@@ -7,4 +7,11 @@ public enum Origine
     Angelic,
     Artificial,
     Aberration
+}
+
+[Serializable]
+public class StatIntCouple
+{
+    StatId Stat;
+    int Value;
 }

@@ -28,9 +28,9 @@ public class CombatManager : MonoBehaviour
 
     public List<Team> Teams;
 
-    public List<CombatParticipant> ActingUnits;
+    public List<UnitBehaviour> ActingUnits;
 
-    public void FixedUpdate()
+    public void Update()
     {
         if (isCTB)
         {
@@ -39,6 +39,14 @@ public class CombatManager : MonoBehaviour
         else
         {
             TickingATB();
+        }
+
+        if (ActingUnits != null)
+        {
+            foreach ( UnitBehaviour _unit in ActingUnits)
+            {
+                ;  // faire agir le participant !!!
+            }
         }
     }
 
@@ -66,38 +74,38 @@ public class CombatManager : MonoBehaviour
     {
         foreach (Team _team in Teams)
         {
-            foreach (CombatParticipant _participant in _team.FieldMembers)
+            foreach (UnitBehaviour _unit in _team.FieldMembers)
             {
-                _participant.ActionPoints += _participant.Spirit.Stats[(int)StatId.Speed].Value;
+                _unit.ActionPoints += _unit.Stats[(int)StatId.Speed].Value;
 
-                if (_participant.ActionPoints >= GameManager.Current.GameParameters.ActionTreshold)
+                if (_unit.ActionPoints >= GameManager.Current.GameParameters.ActionTreshold)
                 {
                     State = CombatState.waitingForAnswer;
                     if (ActingUnits != null)
                     {
                         bool _isAded = false;
                         int _index = 0;
-                        while (_index < ActingUnits.Count && _participant.ActionPoints >= ActingUnits[_index].ActionPoints)
+                        while (_index < ActingUnits.Count && _unit.ActionPoints >= ActingUnits[_index].ActionPoints)
                         {
-                            if (_participant.ActionPoints > ActingUnits[_index].ActionPoints)
+                            if (_unit.ActionPoints > ActingUnits[_index].ActionPoints)
                             {
-                                ActingUnits.Insert(_index , _participant);
+                                ActingUnits.Insert(_index , _unit);
                                 _isAded = true;
                             }
-                            else if (_participant.Spirit.Stats[(int)StatId.Speed].Value > ActingUnits[_index].Spirit.Stats[(int)StatId.Speed].Value)
+                            else if (_unit.Stats[(int)StatId.Speed].Value > ActingUnits[_index].Stats[(int)StatId.Speed].Value)
                             {
-                                ActingUnits.Insert(_index , _participant);
+                                ActingUnits.Insert(_index , _unit);
                                 _isAded = true;
                             }
                         }
                         if (_isAded == false)
                         {
-                            ActingUnits.Insert(_index+1 , _participant);
+                            ActingUnits.Insert(_index+1 , _unit);
                         }
                     }
                     else
                     {
-                        ActingUnits.Insert(0 , _participant);
+                        ActingUnits.Insert(0 , _unit);
                     }
                 }
             }

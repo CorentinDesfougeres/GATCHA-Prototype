@@ -2,12 +2,11 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 
-class AlterationBehaviour : MonoBehaviour
+class AlterationBehaviour : ActorBehaviour
 {
     public AlterationData Data;
 
-    public SpiritBehaviour Source;
-    public SpiritBehaviour Host;
+    public UnitBehaviour Host;
 
     public void OnEnable()
     {
