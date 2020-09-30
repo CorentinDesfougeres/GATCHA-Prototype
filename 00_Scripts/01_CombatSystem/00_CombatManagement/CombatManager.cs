@@ -28,6 +28,8 @@ public class CombatManager : MonoBehaviour
 
     public List<Team> Teams;
 
+    public List<CombatParticipant> ActingUnits;
+
     public void FixedUpdate()
     {
         if (isCTB)
@@ -70,7 +72,33 @@ public class CombatManager : MonoBehaviour
 
                 if (_participant.ActionPoints >= GameManager.Current.GameParameters.ActionTreshold)
                 {
-                    
+                    State = CombatState.waitingForAnswer;
+                    if (ActingUnits != null)
+                    {
+                        bool _isAded = false;
+                        int _index = 0;
+                        while (_index < ActingUnits.Count && _participant.ActionPoints >= ActingUnits[_index].ActionPoints)
+                        {
+                            if (_participant.ActionPoints > ActingUnits[_index].ActionPoints)
+                            {
+                                ActingUnits.Insert(_index , _participant);
+                                _isAded = true;
+                            }
+                            else if (_participant.Spirit.Stats[(int)StatId.Speed].Value > ActingUnits[_index].Spirit.Stats[(int)StatId.Speed].Value)
+                            {
+                                ActingUnits.Insert(_index , _participant);
+                                _isAded = true;
+                            }
+                        }
+                        if (_isAded == false)
+                        {
+                            ActingUnits.Insert(_index+1 , _participant);
+                        }
+                    }
+                    else
+                    {
+                        ActingUnits.Insert(0 , _participant);
+                    }
                 }
             }
         }
