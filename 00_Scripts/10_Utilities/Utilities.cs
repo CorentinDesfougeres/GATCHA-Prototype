@@ -15,3 +15,5 @@ public class StatIntCouple
     StatId Stat;
     int Value;
 }
+
+public delegate void TestEventHandler();

@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
 
+[Serializable]
 public class Team
 {
     public List<UnitBehaviour> FieldMembers;

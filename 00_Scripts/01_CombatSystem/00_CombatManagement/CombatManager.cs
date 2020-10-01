@@ -18,6 +18,7 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+
     public CombatState State;
 
     public int Tick;
@@ -123,17 +124,18 @@ public class CombatManager : MonoBehaviour
 
 
 
-
-
+    
     public event EventHandler OnCombatStart;
-    public void StartCombat()   //Faire dans le OnEnable?
+    public void StartCombat(List<Team> _teams)   // Faire dans le OnEnable ?
     {
-        if (OnCombatEnd != null)
+        if (OnCombatStart != null)
         {
             OnCombatStart(this, EventArgs.Empty);
         }
 
         Tick = 0;
+
+        Teams = _teams;
     }
 
     public event EventHandler OnCombatEnd;
