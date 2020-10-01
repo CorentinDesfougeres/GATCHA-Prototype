@@ -26,6 +26,9 @@ public class UnitBehaviour : MonoBehaviour
 
 
     // Combat Behaviour :
+
+    public UnitControllerBehaviour Controller;
+
     public bool isAlive;
     public int Health;
     public int Mana;

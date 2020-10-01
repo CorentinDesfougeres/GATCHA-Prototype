@@ -465,9 +465,3 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  Specie: {fileID: 0}
-  Stats: []
-  EVs: 
-  Level: 0
-  experience: 0
-  isAlive: 0

@@ -45,7 +45,16 @@ public class CombatManager : MonoBehaviour
         {
             foreach ( UnitBehaviour _unit in ActingUnits)
             {
-                ;  // faire agir le participant !!!
+                if (_unit.WaitingList != null)
+                {
+                    _unit.Act();
+                }
+                else
+                {
+                    //_unit.Controller.PickAction();     // see how to make sure that UnitBehaviour cache it's controller at the start of Combat so that we don't need to go search it every time
+                    _unit.Controller.GetComponent<UnitControllerBehaviour>().PickAction();
+                    _unit.Act();
+                }
             }
         }
     }
