@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AllEnemies : Targeting
 {
-    new public UnitBehaviour[] Execute(ActorBehaviour _source)
+    public override UnitBehaviour[] Execute(ActorBehaviour _source)
     {
         List<UnitBehaviour> _temporary = new List<UnitBehaviour>();
 

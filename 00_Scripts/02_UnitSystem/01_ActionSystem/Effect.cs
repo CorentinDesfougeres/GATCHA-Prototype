@@ -2,10 +2,7 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public class Effect
+public abstract class Effect
 {
-    public void Execute(ActorBehaviour _source , UnitBehaviour[] _targets)
-    {
-
-    }
+    public abstract void Execute(ActorBehaviour _source , UnitBehaviour[] _targets);
 }
