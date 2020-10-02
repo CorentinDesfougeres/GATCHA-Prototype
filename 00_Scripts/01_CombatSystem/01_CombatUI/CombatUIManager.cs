@@ -18,7 +18,7 @@ public class CombatUIManager : MonoBehaviour
         }
     }
 
-    public void Start()
+    public void OnEnable()
     {
         CombatManager.Current.OnCombatStart += LaunchCombatUI;
     }
@@ -27,6 +27,11 @@ public class CombatUIManager : MonoBehaviour
     {
 
         return ;
+    }
+
+    public void OnDisable()
+    {
+        CombatManager.Current.OnCombatStart -= LaunchCombatUI;
     }
 
 }

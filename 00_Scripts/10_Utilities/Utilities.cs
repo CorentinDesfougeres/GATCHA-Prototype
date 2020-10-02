@@ -1,6 +1,6 @@
 using System;
 
-public enum Origine
+public enum OrigineId
 {
     Primordial,
     Demonic,
@@ -9,7 +9,7 @@ public enum Origine
     Aberration
 }
 
-public enum Type
+public enum TypeId
 {
     Physical,
     Mental
@@ -18,8 +18,8 @@ public enum Type
 [Serializable]
 public class StatIntCouple
 {
-    StatId Stat;
-    int Value;
+    public StatId Stat;
+    public int Value;
 }
 
 public delegate void TestEventHandler();

@@ -1,5 +1,6 @@
-public enum Element
+public enum ElementId
 {
+    Neutral,
     Fire,
     Water,
     Wind,
