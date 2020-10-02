@@ -10,7 +10,6 @@ public class CombatManager : MonoBehaviour
         if (Current == null)
         {
             Current = this;
-            DontDestroyOnLoad(this.gameObject);
         }
         else
         {

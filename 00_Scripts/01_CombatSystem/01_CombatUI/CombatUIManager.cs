@@ -11,7 +11,6 @@ public class CombatUIManager : MonoBehaviour
         if (Current == null)
         {
             Current = this;
-            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
