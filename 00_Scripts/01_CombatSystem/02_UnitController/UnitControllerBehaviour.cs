@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitControllerBehaviour : MonoBehaviour
+public abstract class UnitControllerBehaviour : MonoBehaviour
 {
-    public void PickAction()
-    {
-        
-    }
+    public abstract void PickAction();
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerUnitControllerBehaviour : UnitControllerBehaviour
 {
-    public void PickAction()
+    public override void PickAction()
     {
 
     }
