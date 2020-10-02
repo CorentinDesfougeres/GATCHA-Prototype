@@ -31,6 +31,14 @@ public class UnitBehaviour : MonoBehaviour
 
     public bool isAlive;
     public int Health;
+    public delegate void DamageEventsHandler(int _amount , Type _type, Element _element , Origine _origine);
+    public event DamageEventsHandler OnDamageTaken;
+    public void TakeDamage(int _amount , Type _type, Element _element , Origine _origine)
+    {
+        Health -= _amount;
+        OnDamageTaken?.Invoke(_amount , _type, _element , _origine);
+    }
+
     public int Mana;
     public int ActionPoints;
 

@@ -9,6 +9,12 @@ public enum Origine
     Aberration
 }
 
+public enum Type
+{
+    Physical,
+    Mental
+}
+
 [Serializable]
 public class StatIntCouple
 {

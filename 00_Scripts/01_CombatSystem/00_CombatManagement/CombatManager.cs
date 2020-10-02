@@ -123,15 +123,12 @@ public class CombatManager : MonoBehaviour
 
 
 
-    
-    public event EventHandler OnCombatStart;
+    public delegate void CombatEventHandler();
+    public event CombatEventHandler OnCombatStart;
     public void StartCombat(List<Team> _teams)   // Faire dans le OnEnable ?
     {
-        if (OnCombatStart != null)
-        {
-            OnCombatStart(this, EventArgs.Empty);
-        }
-
+        OnCombatStart?.Invoke();
+        
         Tick = 0;
 
         Teams = _teams;

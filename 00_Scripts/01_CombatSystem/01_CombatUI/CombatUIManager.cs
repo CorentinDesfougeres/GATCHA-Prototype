@@ -20,12 +20,13 @@ public class CombatUIManager : MonoBehaviour
 
     public void Start()
     {
-        //CombatManager.Current.OnCombatStart += LaunchCombatUI();      // ça marche paaaaas !
+        CombatManager.Current.OnCombatStart += LaunchCombatUI;
     }
 
-    public void LaunchCombatUI(object _obj , EventArgs _args)
+    public void LaunchCombatUI()
     {
-        return;
+
+        return ;
     }
 
 }
