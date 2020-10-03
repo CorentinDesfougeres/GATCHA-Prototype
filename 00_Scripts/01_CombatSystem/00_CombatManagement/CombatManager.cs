@@ -32,30 +32,37 @@ public class CombatManager : MonoBehaviour
 
     public void Update()
     {
-        if (isCTB)
+        if (State == CombatState.ticking)
         {
-            TickingCTB();
-        }
-        else
-        {
-            TickingATB();
-        }
-
-        if (ActingUnits != null)
-        {
-            foreach ( UnitBehaviour _unit in ActingUnits)
+            if (isCTB)
             {
-                if (_unit.WaitingList != null)
+                TickingCTB();
+            }
+            else
+            {
+                TickingATB();
+            }
+
+            if (ActingUnits != null)
+            {
+                foreach (UnitBehaviour _unit in ActingUnits)
                 {
-                    _unit.Act();
-                }
-                else
-                {
-                    //_unit.Controller.PickAction();     // see how to make sure that UnitBehaviour cache it's controller at the start of Combat so that we don't need to go search it every time
-                    _unit.Controller.GetComponent<UnitControllerBehaviour>().PickAction();
-                    _unit.Act();
+                    if (_unit.WaitingList != null)
+                    {
+                        _unit.Act();
+                    }
+                    else
+                    {
+                        //_unit.Controller.PickAction();     // see how to make sure that UnitBehaviour cache it's controller at the start of Combat so that we don't need to go search it every time
+                        _unit.Controller.GetComponent<UnitControllerBehaviour>().PickAction();
+                        _unit.Act();
+                    }
                 }
             }
+        }
+        if (State == CombatState.waitingForAnswer)
+        {
+            
         }
     }
 

@@ -16,6 +16,8 @@ public class UnitBehaviour : MonoBehaviour
         }
     }
 
+    public List<MoveBehaviour> Moves; //array plutot que liste ?
+
     public int Level;
     private int experience;
     public void GainExperience(int _amoutGained)

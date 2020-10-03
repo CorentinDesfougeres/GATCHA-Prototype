@@ -5,4 +5,10 @@ using UnityEngine;
 public abstract class UnitControllerBehaviour : MonoBehaviour
 {
     public abstract void PickAction();
+    public UnitBehaviour ControlledUnit;
+    
+    public void Start()
+    {
+        ControlledUnit = GetComponent<UnitBehaviour>();
+    }
 }

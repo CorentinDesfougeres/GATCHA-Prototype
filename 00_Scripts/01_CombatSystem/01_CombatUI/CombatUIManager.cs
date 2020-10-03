@@ -34,4 +34,7 @@ public class CombatUIManager : MonoBehaviour
         CombatManager.Current.OnCombatStart -= LaunchCombatUI;
     }
 
+    public delegate void MoveSelectedHandler(MoveBehaviour move);
+    public event MoveSelectedHandler OnMoveSelected;
+    // Faire une interaction avec les boutons pour réellement sélectionner
 }
