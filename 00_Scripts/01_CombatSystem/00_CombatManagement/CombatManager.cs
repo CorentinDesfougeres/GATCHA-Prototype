@@ -27,6 +27,7 @@ public class CombatManager : MonoBehaviour
     private float tickDebt;
 
     public List<Team> Teams;
+    public PlayerUnitControllerBehaviour PlayerUnitController;
 
     public List<UnitBehaviour> ActingUnits;
 
@@ -62,7 +63,10 @@ public class CombatManager : MonoBehaviour
         }
         if (State == CombatState.waitingForAnswer)
         {
-            
+            if (ActingUnits[0].WaitingList != null)
+            {
+                ActingUnits[0].Act();
+            }
         }
     }
 
@@ -148,5 +152,13 @@ public class CombatManager : MonoBehaviour
         {
             OnCombatEnd(this, EventArgs.Empty);
         }
+    }
+
+    public delegate void UnitEntrance(UnitBehaviour _unit);
+    public event UnitEntrance OnUnitEnteredFeild;
+    public void PutUnitOnFeild(UnitBehaviour _unit, int _position)
+    {
+        Teams[_unit.TeamId].FieldMembers[_position] = _unit;
+        OnUnitEnteredFeild.Invoke(_unit);
     }
 }

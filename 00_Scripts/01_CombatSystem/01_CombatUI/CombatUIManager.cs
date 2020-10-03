@@ -6,6 +6,7 @@ using System;
 public class CombatUIManager : MonoBehaviour
 {
     public static CombatUIManager Current;
+    private CombatManager combatManager;
     public void Awake()
     {
         if (Current == null)
@@ -18,9 +19,15 @@ public class CombatUIManager : MonoBehaviour
         }
     }
 
+    public UnitBehaviour SelectedUnit;
+    public bool isSelectionLocked;
+
     public void OnEnable()
     {
-        CombatManager.Current.OnCombatStart += LaunchCombatUI;
+        combatManager = CombatManager.Current;
+        combatManager.OnCombatStart += LaunchCombatUI;
+        combatManager.PlayerUnitController.OnMoveSelectionStarted += LaunchMoveSelection;
+        combatManager.OnUnitEnteredFeild += SetUpUnit;
     }
 
     public void LaunchCombatUI()
@@ -34,7 +41,23 @@ public class CombatUIManager : MonoBehaviour
         CombatManager.Current.OnCombatStart -= LaunchCombatUI;
     }
 
+    public void SetUpUnit(UnitBehaviour _unit)
+    {
+        
+    }
+    public GameObject ButtonBar;
     public delegate void MoveSelectedHandler(MoveBehaviour move);
     public event MoveSelectedHandler OnMoveSelected;
-    // Faire une interaction avec les boutons pour réellement sélectionner
+    public void LaunchMoveSelection(UnitBehaviour _unit)
+    {
+        SelectedUnit = _unit;
+        isSelectionLocked = true;
+        ButtonBar.SetActive(true);
+        //devrait changer les noms / images des boutons pour correspondre à la sélection (ou faire ça dans sa propre fonction automatique ?)
+    }
+    public void ProcessMoveButtonClick(int _id)
+    {
+        //OnMoveSelected.Invoke(SelectedUnit.Moves[_id]);
+        combatManager.PlayerUnitController.ProcessChoice(SelectedUnit.Moves[_id]);
+    }
 }

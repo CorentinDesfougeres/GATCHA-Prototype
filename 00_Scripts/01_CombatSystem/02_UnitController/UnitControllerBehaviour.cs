@@ -6,6 +6,7 @@ public abstract class UnitControllerBehaviour : MonoBehaviour
 {
     public abstract void PickAction();
     public UnitBehaviour ControlledUnit;
+    public bool isPlayerControlled;
     
     public void Start()
     {
