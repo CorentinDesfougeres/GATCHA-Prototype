@@ -6,9 +6,9 @@ public class PlayerUnitControllerBehaviour : UnitControllerBehaviour
 {
     public delegate void MoveSelectionHandler(UnitBehaviour unit);
     public event MoveSelectionHandler OnMoveSelectionStarted;
-    public override void PickAction()
+    public override void PickAction(UnitBehaviour _unit)
     {
-        OnMoveSelectionStarted.Invoke(ControlledUnit);
+        OnMoveSelectionStarted.Invoke(_unit);
     }
 
     public void ProcessChoice(MoveBehaviour _move)

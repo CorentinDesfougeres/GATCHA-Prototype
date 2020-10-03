@@ -54,8 +54,7 @@ public class CombatManager : MonoBehaviour
                     }
                     else
                     {
-                        //_unit.Controller.PickAction();     // see how to make sure that UnitBehaviour cache it's controller at the start of Combat so that we don't need to go search it every time
-                        _unit.Controller.GetComponent<UnitControllerBehaviour>().PickAction();
+                        _unit.Controller.PickAction(_unit);
                         _unit.Act();
                     }
                 }

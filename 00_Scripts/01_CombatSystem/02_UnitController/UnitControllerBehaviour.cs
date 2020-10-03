@@ -4,9 +4,8 @@ using UnityEngine;
 
 public abstract class UnitControllerBehaviour : MonoBehaviour
 {
-    public abstract void PickAction();
+    public abstract void PickAction(UnitBehaviour _unit);
     public UnitBehaviour ControlledUnit;
-    public bool isPlayerControlled;
     
     public void Start()
     {

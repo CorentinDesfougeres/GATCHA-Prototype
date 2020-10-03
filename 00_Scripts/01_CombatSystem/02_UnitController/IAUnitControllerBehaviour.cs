@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class IAUnitControllerBehaviour : UnitControllerBehaviour
 {
-    public override void PickAction()
+    public override void PickAction(UnitBehaviour _unit)
     {
         int _rand = Random.Range(0 , GameManager.Current.GameParameters.nbMovePerSpirit);
-        ControlledUnit.WaitingList[0] = ControlledUnit.Moves[_rand];
+        _unit.WaitingList[0] = _unit.Moves[_rand];
     }
 
 }
