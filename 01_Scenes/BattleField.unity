@@ -2227,7 +2227,16 @@ MonoBehaviour:
   Tick: 0
   TickSpeed: 1
   isCTB: 0
-  Teams: []
+  Teams:
+  - FieldMembers:
+    - {fileID: 2136066247}
+    - {fileID: 156522638}
+    ReserveMembers:
+    - {fileID: 1924899090}
+  - FieldMembers:
+    - {fileID: 1924899090}
+    - {fileID: 232781754}
+    ReserveMembers: []
   PlayerUnitController: {fileID: 0}
   ActingUnits: []
 --- !u!4 &1793419011
