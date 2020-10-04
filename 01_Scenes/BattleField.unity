@@ -291,7 +291,6 @@ GameObject:
   m_Component:
   - component: {fileID: 156522636}
   - component: {fileID: 156522638}
-  - component: {fileID: 156522637}
   m_Layer: 0
   m_Name: Unit2
   m_TagString: Untagged
@@ -314,20 +313,6 @@ Transform:
   m_Father: {fileID: 1823294904}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &156522637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156522635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d599121090eabf547a79ff92256485e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ControlledUnit: {fileID: 0}
-  isPlayerControlled: 0
 --- !u!114 &156522638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,13 +325,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41a989c483fc1e40966b22d7906a4f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Specie: {fileID: 0}
+  Specie: {fileID: 11400000, guid: 2f3fc8a38716d1b439ca29a60685c51c, type: 2}
   Stats: []
   BonusStatPoints: 
   Moves: []
   Level: 0
-  Controller: {fileID: 0}
-  isAlive: 0
+  Controller: {fileID: 1823294903}
+  isAlive: 1
   Health: 0
   Mana: 0
   ActionPoints: 0
@@ -363,7 +348,6 @@ GameObject:
   m_Component:
   - component: {fileID: 232781752}
   - component: {fileID: 232781754}
-  - component: {fileID: 232781753}
   m_Layer: 0
   m_Name: Unit2
   m_TagString: Untagged
@@ -386,20 +370,6 @@ Transform:
   m_Father: {fileID: 989761707}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &232781753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 232781751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c35d69ae7c6b247b2040fcf4f8c913, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ControlledUnit: {fileID: 0}
-  isPlayerControlled: 0
 --- !u!114 &232781754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,13 +382,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41a989c483fc1e40966b22d7906a4f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Specie: {fileID: 0}
+  Specie: {fileID: 11400000, guid: 2f3fc8a38716d1b439ca29a60685c51c, type: 2}
   Stats: []
   BonusStatPoints: 
   Moves: []
   Level: 0
-  Controller: {fileID: 0}
-  isAlive: 0
+  Controller: {fileID: 989761708}
+  isAlive: 1
   Health: 0
   Mana: 0
   ActionPoints: 0
@@ -918,6 +888,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 989761707}
+  - component: {fileID: 989761708}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -941,6 +912,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &989761708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989761706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c35d69ae7c6b247b2040fcf4f8c913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControlledUnit: {fileID: 0}
 --- !u!1 &1063772731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,7 +1330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectedUnit: {fileID: 0}
   isSelectionLocked: 0
-  ButtonBar: {fileID: 0}
+  ButtonBar: {fileID: 1977876814}
 --- !u!1 &1205601099
 GameObject:
   m_ObjectHideFlags: 0
@@ -2237,7 +2221,10 @@ MonoBehaviour:
     - {fileID: 1924899090}
     - {fileID: 232781754}
     ReserveMembers: []
-  PlayerUnitController: {fileID: 0}
+  PlayerUnitController: {fileID: 1823294903}
+  UnitControllers:
+  - {fileID: 1823294903}
+  - {fileID: 989761708}
   ActingUnits: []
 --- !u!4 &1793419011
 Transform:
@@ -2262,6 +2249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1823294904}
+  - component: {fileID: 1823294903}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2269,6 +2257,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1823294903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823294902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d599121090eabf547a79ff92256485e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ControlledUnit: {fileID: 0}
 --- !u!4 &1823294904
 Transform:
   m_ObjectHideFlags: 0
@@ -2295,7 +2296,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1924899088}
   - component: {fileID: 1924899090}
-  - component: {fileID: 1924899089}
   m_Layer: 0
   m_Name: Unit1
   m_TagString: Untagged
@@ -2318,20 +2318,6 @@ Transform:
   m_Father: {fileID: 989761707}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1924899089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1924899087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c35d69ae7c6b247b2040fcf4f8c913, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ControlledUnit: {fileID: 0}
-  isPlayerControlled: 0
 --- !u!114 &1924899090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2344,13 +2330,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41a989c483fc1e40966b22d7906a4f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Specie: {fileID: 0}
+  Specie: {fileID: 11400000, guid: 2f3fc8a38716d1b439ca29a60685c51c, type: 2}
   Stats: []
   BonusStatPoints: 
   Moves: []
   Level: 0
-  Controller: {fileID: 0}
-  isAlive: 0
+  Controller: {fileID: 989761708}
+  isAlive: 1
   Health: 0
   Mana: 0
   ActionPoints: 0
@@ -2406,7 +2392,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2136066246}
   - component: {fileID: 2136066247}
-  - component: {fileID: 2136066248}
   m_Layer: 0
   m_Name: Unit1
   m_TagString: Untagged
@@ -2441,30 +2426,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41a989c483fc1e40966b22d7906a4f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Specie: {fileID: 0}
+  Specie: {fileID: 11400000, guid: 2f3fc8a38716d1b439ca29a60685c51c, type: 2}
   Stats: []
   BonusStatPoints: 
   Moves: []
   Level: 0
-  Controller: {fileID: 0}
-  isAlive: 0
+  Controller: {fileID: 1823294903}
+  isAlive: 1
   Health: 0
   Mana: 0
   ActionPoints: 0
   WaitingList: []
   State: 0
   TeamId: 0
---- !u!114 &2136066248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136066245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d599121090eabf547a79ff92256485e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ControlledUnit: {fileID: 0}
-  isPlayerControlled: 0

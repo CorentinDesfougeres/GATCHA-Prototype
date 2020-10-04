@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class UnitBehaviour : MonoBehaviour
 {
@@ -26,6 +27,13 @@ public class UnitBehaviour : MonoBehaviour
         //verifier si exp dépace le thresholde de lvl up et si oui déclancher le lvlup
     }
 
+    public void Start()
+    {
+        for (int _index = 0 ; _index < Enum.GetValues(typeof(StatId)).Length ; _index ++)
+        {
+            Stats.Add(new Stat(Specie.BaseStats[_index]));
+        }
+    }
 
     // Combat Behaviour :
 

@@ -16,22 +16,22 @@ public class Stat
         baseValue = _newValue;
     }
 
+    private int value;
     public int Value
     {
         get
         {
             if (isDirty == false)
             {
-                return Value;
+                return value;
             }
             else
             {
-                Value = CalculateValue();
+                value = CalculateValue();
                 isDirty = false;
-                return Value;
+                return value;
             }
         }
-        set{}
     }
 
     public List<StatModifier> StatModifiers;
@@ -124,5 +124,6 @@ public class Stat
         StatModifiers = new List<StatModifier>();
 
         baseValue = value;
+        isDirty = true;
     }
 }

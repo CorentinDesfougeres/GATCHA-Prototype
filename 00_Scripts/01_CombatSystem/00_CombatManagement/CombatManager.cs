@@ -28,6 +28,7 @@ public class CombatManager : MonoBehaviour
 
     public List<Team> Teams;
     public PlayerUnitControllerBehaviour PlayerUnitController;
+    public List<UnitControllerBehaviour> UnitControllers;
 
     public List<UnitBehaviour> ActingUnits;
 
@@ -55,7 +56,6 @@ public class CombatManager : MonoBehaviour
                     else
                     {
                         _unit.Controller.PickAction(_unit);
-                        _unit.Act();
                     }
                 }
             }
@@ -75,9 +75,8 @@ public class CombatManager : MonoBehaviour
 
         while (State == CombatState.ticking && tickDebt >= 1)
         {
-            Tick ++;
-            tickDebt --;
             TickOnce();
+            tickDebt --;
         }
     }
 
@@ -91,6 +90,7 @@ public class CombatManager : MonoBehaviour
 
     public void TickOnce()
     {
+        Tick ++;
         foreach (Team _team in Teams)
         {
             foreach (UnitBehaviour _unit in _team.FieldMembers)
