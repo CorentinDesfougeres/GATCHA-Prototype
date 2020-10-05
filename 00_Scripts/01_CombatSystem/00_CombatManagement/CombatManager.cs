@@ -45,11 +45,12 @@ public class CombatManager : MonoBehaviour
                 TickingATB();
             }
 
-            if (ActingUnits != null)
+            if (ActingUnits.Count != 0)
             {
+                Debug.Log("UpdateGoneIntoTheActingList");                                       // DebugcodeDebug.Log("TickingATBStart");                                       // Debugcode
                 foreach (UnitBehaviour _unit in ActingUnits)
                 {
-                    if (_unit.WaitingList != null)
+                    if (_unit.WaitingList.Count != 0)
                     {
                         _unit.Act();
                     }
@@ -62,7 +63,7 @@ public class CombatManager : MonoBehaviour
         }
         if (State == CombatState.waitingForAnswer)
         {
-            if (ActingUnits[0].WaitingList != null)
+            if (ActingUnits[0].WaitingList.Count != 0)
             {
                 ActingUnits[0].Act();
             }
@@ -71,13 +72,15 @@ public class CombatManager : MonoBehaviour
 
     public void TickingATB()
     {
-        tickDebt += Time.deltaTime * TickSpeed;
 
+        tickDebt += Time.deltaTime * TickSpeed;
+        
         while (State == CombatState.ticking && tickDebt >= 1)
         {
             TickOnce();
             tickDebt --;
         }
+
     }
 
     public void TickingCTB()                       //  /!\  crash si TickOnce() ne fait pas sortir de CombatState.Ticking !
@@ -91,6 +94,7 @@ public class CombatManager : MonoBehaviour
     public void TickOnce()
     {
         Tick ++;
+        Debug.Log("TickingOnceStart");                                       // Debugcode
         foreach (Team _team in Teams)
         {
             foreach (UnitBehaviour _unit in _team.FieldMembers)
@@ -100,7 +104,7 @@ public class CombatManager : MonoBehaviour
                 if (_unit.ActionPoints >= GameManager.Current.GameParameters.ActionTreshold)
                 {
                     State = CombatState.waitingForAnswer;
-                    if (ActingUnits != null)
+                    if (ActingUnits.Count != 0)
                     {
                         bool _isAded = false;
                         int _index = 0;
@@ -116,6 +120,7 @@ public class CombatManager : MonoBehaviour
                                 ActingUnits.Insert(_index , _unit);
                                 _isAded = true;
                             }
+                            _index ++;
                         }
                         if (_isAded == false)
                         {
@@ -131,11 +136,12 @@ public class CombatManager : MonoBehaviour
                     }
                     else
                     {
-                        ActingUnits.Insert(0 , _unit);
+                        ActingUnits.Add(_unit);
                     }
                 }
             }
         }
+        Debug.Log("TickingOnceEnd");                                       // Debugcode
     }
 
 

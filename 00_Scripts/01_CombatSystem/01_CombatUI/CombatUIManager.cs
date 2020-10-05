@@ -22,10 +22,9 @@ public class CombatUIManager : MonoBehaviour
     public UnitBehaviour SelectedUnit;
     public bool isSelectionLocked;
 
-    public void OnEnable()
+    public void Start()
     {
         combatManager = CombatManager.Current;
-        combatManager.OnCombatStart += LaunchCombatUI;
         combatManager.PlayerUnitController.OnMoveSelectionStarted += LaunchMoveSelection;
         combatManager.OnUnitEnteredFeild += SetUpUnit;
     }

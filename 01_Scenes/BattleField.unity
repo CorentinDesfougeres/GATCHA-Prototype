@@ -2333,7 +2333,8 @@ MonoBehaviour:
   Specie: {fileID: 11400000, guid: 2f3fc8a38716d1b439ca29a60685c51c, type: 2}
   Stats: []
   BonusStatPoints: 
-  Moves: []
+  Moves:
+  - {fileID: 0}
   Level: 0
   Controller: {fileID: 989761708}
   isAlive: 1
