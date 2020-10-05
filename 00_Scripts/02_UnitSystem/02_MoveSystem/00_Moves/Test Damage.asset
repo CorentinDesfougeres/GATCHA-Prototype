@@ -10,10 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 283c0beef97f0a147b38686d3945812f, type: 3}
-  m_Name: New Move Data 1
+  m_Name: Test Damage
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Zone Damage
   Description: 
-  PassiveEffects: []
-  DeclarationEffects: []
-  ExecutionEffects: []

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveBehaviour : ActorBehaviour
 {
-    MoveData Data;
+    public MoveData Data;
 
     public void StartPassives()
     {

@@ -104,7 +104,7 @@ public class CombatManager : MonoBehaviour
                     {
                         bool _isAded = false;
                         int _index = 0;
-                        while (_index < ActingUnits.Count && _unit.ActionPoints >= ActingUnits[_index].ActionPoints)
+                        while (_index < ActingUnits.Count-1 && _unit.ActionPoints >= ActingUnits[_index].ActionPoints)
                         {
                             if (_unit.ActionPoints > ActingUnits[_index].ActionPoints)
                             {
@@ -119,7 +119,14 @@ public class CombatManager : MonoBehaviour
                         }
                         if (_isAded == false)
                         {
-                            ActingUnits.Insert(_index+1 , _unit);
+                            if(_index < ActingUnits.Count-1)
+                            {
+                                ActingUnits.Insert(_index+1 , _unit);
+                            }
+                            else
+                            {
+                                ActingUnits.Add(_unit);
+                            }
                         }
                     }
                     else
