@@ -45,15 +45,17 @@ public class CombatManager : MonoBehaviour
                 TickingATB();
             }
         }
-        if (State == CombatState.ActingUnits)
+        if (State == CombatState.ActingList)
         {
             if (ActingUnits[0].WaitingList.Count != 0)
             {
                 ActingUnits[0].Act();
+                State = CombatState.waitingForAnimation;
             }
             else
             {
                 ActingUnits[0].Controller.PickAction(ActingUnits[0]);
+                State = CombatState.waitingForAnswer;
             }
         }
         if (State == CombatState.waitingForAnswer)
@@ -61,7 +63,21 @@ public class CombatManager : MonoBehaviour
             if (ActingUnits[0].WaitingList.Count != 0)
             {
                 ActingUnits[0].Act();
+                State = CombatState.waitingForAnimation;
             }
+        }
+        if (State == CombatState.waitingForAnimation)
+        {
+            // wait for the end of the animation
+            if (ActingUnits.Count != 0)
+            {
+                State = CombatState.ActingList;
+            }
+            else
+            {
+                State = CombatState.ticking;
+            }
+            
         }
     }
 
