@@ -44,21 +44,16 @@ public class CombatManager : MonoBehaviour
             {
                 TickingATB();
             }
-
-            if (ActingUnits.Count != 0)
+        }
+        if (State == CombatState.ActingUnits)
+        {
+            if (ActingUnits[0].WaitingList.Count != 0)
             {
-                Debug.Log("UpdateGoneIntoTheActingList");                                       // DebugcodeDebug.Log("TickingATBStart");                                       // Debugcode
-                foreach (UnitBehaviour _unit in ActingUnits)
-                {
-                    if (_unit.WaitingList.Count != 0)
-                    {
-                        _unit.Act();
-                    }
-                    else
-                    {
-                        _unit.Controller.PickAction(_unit);
-                    }
-                }
+                ActingUnits[0].Act();
+            }
+            else
+            {
+                ActingUnits[0].Controller.PickAction(ActingUnits[0]);
             }
         }
         if (State == CombatState.waitingForAnswer)
