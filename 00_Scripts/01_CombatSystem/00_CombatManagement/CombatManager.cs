@@ -61,7 +61,6 @@ public class CombatManager : MonoBehaviour
         }
         if (State == CombatState.waitingForAnswer)
         {
-            Debug.Log("WaitingForAnswer");
             if (ActingUnits[0].WaitingList.Count != 0)
             {
                 ActingUnits[0].Act();

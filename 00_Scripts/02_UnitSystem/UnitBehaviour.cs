@@ -18,7 +18,7 @@ public class UnitBehaviour : MonoBehaviour
         }
     }
 
-    [SerializeReference] public List<MoveBehaviour> Moves; //array plutot que liste ?
+    public List<MoveBehaviour> Moves; //array plutot que liste ?
 
     public int Level;
     private int experience;

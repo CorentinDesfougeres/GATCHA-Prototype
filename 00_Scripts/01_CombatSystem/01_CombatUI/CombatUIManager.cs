@@ -58,6 +58,6 @@ public class CombatUIManager : MonoBehaviour
     public void ProcessMoveButtonClick(int _id)
     {
         //OnMoveSelected.Invoke(SelectedUnit.Moves[_id]);
-        combatManager.PlayerUnitController.ProcessChoice(SelectedUnit.Moves[_id]);
+        combatManager.PlayerUnitController.ProcessChoice(SelectedUnit.Moves[_id], SelectedUnit);
     }
 }

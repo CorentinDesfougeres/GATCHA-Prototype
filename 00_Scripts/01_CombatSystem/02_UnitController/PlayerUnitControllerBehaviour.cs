@@ -12,10 +12,10 @@ public class PlayerUnitControllerBehaviour : UnitControllerBehaviour
         OnMoveSelectionStarted?.Invoke(_unit);
     }
 
-    public void ProcessChoice(MoveBehaviour _move)
+    public void ProcessChoice(MoveBehaviour _move, UnitBehaviour _controlledUnit)
     {
         Debug.Log("ProcessChoice");
-        ControlledUnit.WaitingList[0] = _move;
+        _controlledUnit.WaitingList.Insert(0,_move);
     }
 
 
