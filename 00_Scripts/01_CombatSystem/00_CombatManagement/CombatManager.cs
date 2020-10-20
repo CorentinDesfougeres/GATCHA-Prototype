@@ -34,7 +34,7 @@ public class CombatManager : MonoBehaviour
 
     public void Update()
     {
-        if (State == CombatState.ticking)
+        if (State == CombatState.Ticking)
         {
             if (isCTB)
             {
@@ -47,39 +47,10 @@ public class CombatManager : MonoBehaviour
         }
         if (State == CombatState.ActingList)
         {
-            Debug.Log("ActingList");
-            if (ActingUnits[0].WaitingList.Count != 0)
-            {
-                ActingUnits[0].Act();
-                State = CombatState.waitingForAnimation;
-            }
-            else
-            {
-                ActingUnits[0].Controller.PickAction(ActingUnits[0]);
-                State = CombatState.waitingForAnswer;
-            }
-        }
-        if (State == CombatState.waitingForAnswer)
-        {
-            if (ActingUnits[0].WaitingList.Count != 0)
-            {
-                ActingUnits[0].Act();
-                State = CombatState.waitingForAnimation;
-            }
-        }
-        if (State == CombatState.waitingForAnimation)
-        {
-            Debug.Log("Waiting for anim");
-            // wait for the end of the animation
-            if (ActingUnits.Count != 0)
-            {
-                State = CombatState.ActingList;
-            }
-            else
-            {
-                State = CombatState.ticking;
-            }
-            
+            Debug.Log("Acting");
+            ActingUnits[0].Act();
+            ActingUnits.RemoveAt(0);
+            State = CombatState.UnitTurn;
         }
     }
 
@@ -88,7 +59,7 @@ public class CombatManager : MonoBehaviour
 
         tickDebt += Time.deltaTime * TickSpeed;
         
-        while (State == CombatState.ticking && tickDebt >= 1)
+        while (State == CombatState.Ticking && tickDebt >= 1)
         {
             TickOnce();
             tickDebt --;
@@ -98,7 +69,7 @@ public class CombatManager : MonoBehaviour
 
     public void TickingCTB()                       //  /!\  crash si TickOnce() ne fait pas sortir de CombatState.Ticking !
     {
-        while (State == CombatState.ticking)
+        while (State == CombatState.Ticking)
         {
             TickOnce();
         }
@@ -183,5 +154,17 @@ public class CombatManager : MonoBehaviour
     {
         Teams[_unit.TeamId].FieldMembers[_position] = _unit;
         OnUnitEnteredFeild.Invoke(_unit);
+    }
+
+    public void EndUnitTurn()
+    {
+        if (ActingUnits.Count != 0)
+        {
+            State = CombatState.ActingList;
+        }
+        else
+        {
+            State = CombatState.Ticking;
+        }
     }
 }

@@ -63,18 +63,28 @@ public class UnitBehaviour : MonoBehaviour
         Debug.Log("UnitAct");
         if (State == UnitCombatState.recuperation)
         {
-            if (WaitingList != null)
+            if (WaitingList.Count != 0)
             {
-                WaitingList[0].Declare();
+                WaitingList[0]?.Declare();
+                State = UnitCombatState.preparation;
             }
             else
             {
-                // faire choisir un move selon si c'est IA ou joueur !
+                Controller.OnMovePicked += Declare;
+                Controller.PickAction(this);
             }
         }
-        if (State == UnitCombatState.preparation)
+        else if (State == UnitCombatState.preparation)
         {
-            WaitingList[0].Execute();
+            WaitingList[0]?.Execute();
+            State = UnitCombatState.recuperation;
         }
+    }
+
+    public void Declare()
+    {
+        WaitingList[0]?.Declare();
+        State = UnitCombatState.preparation;
+        Controller.OnMovePicked -= Declare;
     }
 }

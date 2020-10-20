@@ -16,6 +16,7 @@ public class PlayerUnitControllerBehaviour : UnitControllerBehaviour
     {
         Debug.Log("ProcessChoice");
         _controlledUnit.WaitingList.Insert(0,_move);
+        InvokeOnMovePicked();
     }
 
 

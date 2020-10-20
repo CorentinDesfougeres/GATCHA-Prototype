@@ -1,7 +1,6 @@
 public enum CombatState
 {
-    ticking,
+    Ticking,
     ActingList,
-    waitingForAnswer,
-    waitingForAnimation
+    UnitTurn
 }
