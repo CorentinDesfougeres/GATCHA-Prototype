@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public abstract class ActorBehaviour : MonoBehaviour
+[Serializable]
+public abstract class ActorBehaviour
 {
     public UnitBehaviour SourceUnit;
 }

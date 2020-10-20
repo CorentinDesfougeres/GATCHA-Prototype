@@ -8,11 +8,13 @@ public class PlayerUnitControllerBehaviour : UnitControllerBehaviour
     public event MoveSelectionHandler OnMoveSelectionStarted;
     public override void PickAction(UnitBehaviour _unit)
     {
-        OnMoveSelectionStarted.Invoke(_unit);
+        Debug.Log("PickActionPlayer");
+        OnMoveSelectionStarted?.Invoke(_unit);
     }
 
     public void ProcessChoice(MoveBehaviour _move)
     {
+        Debug.Log("ProcessChoice");
         ControlledUnit.WaitingList[0] = _move;
     }
 

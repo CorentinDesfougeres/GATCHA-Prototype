@@ -47,6 +47,7 @@ public class CombatManager : MonoBehaviour
         }
         if (State == CombatState.ActingList)
         {
+            Debug.Log("ActingList");
             if (ActingUnits[0].WaitingList.Count != 0)
             {
                 ActingUnits[0].Act();
@@ -60,6 +61,7 @@ public class CombatManager : MonoBehaviour
         }
         if (State == CombatState.waitingForAnswer)
         {
+            Debug.Log("WaitingForAnswer");
             if (ActingUnits[0].WaitingList.Count != 0)
             {
                 ActingUnits[0].Act();
@@ -68,6 +70,7 @@ public class CombatManager : MonoBehaviour
         }
         if (State == CombatState.waitingForAnimation)
         {
+            Debug.Log("Waiting for anim");
             // wait for the end of the animation
             if (ActingUnits.Count != 0)
             {
@@ -105,7 +108,6 @@ public class CombatManager : MonoBehaviour
     public void TickOnce()
     {
         Tick ++;
-        Debug.Log("TickingOnceStart");                                       // Debugcode
         foreach (Team _team in Teams)
         {
             foreach (UnitBehaviour _unit in _team.FieldMembers)
@@ -114,7 +116,7 @@ public class CombatManager : MonoBehaviour
 
                 if (_unit.ActionPoints >= GameManager.Current.GameParameters.ActionTreshold)
                 {
-                    State = CombatState.waitingForAnswer;
+                    State = CombatState.ActingList;
                     if (ActingUnits.Count != 0)
                     {
                         bool _isAded = false;
@@ -152,7 +154,6 @@ public class CombatManager : MonoBehaviour
                 }
             }
         }
-        Debug.Log("TickingOnceEnd");                                       // Debugcode
     }
 
 

@@ -1,7 +1,10 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 
+[ShowOdinSerializedPropertiesInInspector]
 public class UnitBehaviour : MonoBehaviour
 {
     public UnitData Specie;
@@ -17,7 +20,7 @@ public class UnitBehaviour : MonoBehaviour
         }
     }
 
-    public List<MoveBehaviour> Moves; //array plutot que liste ?
+    [OdinSerialize] public List<MoveBehaviour> Moves; //array plutot que liste ?
 
     public int Level;
     private int experience;
@@ -59,6 +62,7 @@ public class UnitBehaviour : MonoBehaviour
 
     public void Act()
     {
+        Debug.Log("UnitAct");
         if (State == UnitCombatState.recuperation)
         {
             if (WaitingList != null)

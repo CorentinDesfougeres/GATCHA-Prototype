@@ -14,3 +14,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Zone Damage
   Description: 
+  PassiveEffects: []
+  DeclarationEffects: []
+  ExecutionEffects:
+  - Targeting:
+      id: 0
+    Effect:
+      id: 1
+  - Targeting:
+      id: 2
+    Effect:
+      id: 3
+  references:
+    version: 1
+    00000000:
+      type: {class: Self, ns: , asm: Assembly-CSharp}
+    00000001:
+      type: {class: DirectDamage, ns: , asm: Assembly-CSharp}
+      data:
+        FlatDamage: 100
+        StatDependantDammages: []
+        Type: 0
+        Element: 0
+        Origine: 0
+    00000002:
+      type: {class: Self, ns: , asm: Assembly-CSharp}
+    00000003:
+      type: {class: DirectDamage, ns: , asm: Assembly-CSharp}
+      data:
+        FlatDamage: 10
+        StatDependantDammages: []
+        Type: 0
+        Element: 0
+        Origine: 0

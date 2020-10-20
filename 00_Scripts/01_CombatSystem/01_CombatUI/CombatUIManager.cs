@@ -49,6 +49,7 @@ public class CombatUIManager : MonoBehaviour
     public event MoveSelectedHandler OnMoveSelected;
     public void LaunchMoveSelection(UnitBehaviour _unit)
     {
+        Debug.Log("LaunchMoveSelection");
         SelectedUnit = _unit;
         isSelectionLocked = true;
         ButtonBar.SetActive(true);

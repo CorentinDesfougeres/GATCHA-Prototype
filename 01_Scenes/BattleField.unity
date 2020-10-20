@@ -297,7 +297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &156522636
 Transform:
   m_ObjectHideFlags: 0
@@ -328,18 +328,12 @@ MonoBehaviour:
   Specie: {fileID: 11400000, guid: 2f3fc8a38716d1b439ca29a60685c51c, type: 2}
   Stats: []
   BonusStatPoints: 
-  Moves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   Level: 0
   Controller: {fileID: 1823294903}
   isAlive: 1
   Health: 0
   Mana: 0
   ActionPoints: 0
-  WaitingList: []
   State: 0
   TeamId: 0
 --- !u!1 &232781751
@@ -358,7 +352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &232781752
 Transform:
   m_ObjectHideFlags: 0
@@ -389,18 +383,12 @@ MonoBehaviour:
   Specie: {fileID: 11400000, guid: 2f3fc8a38716d1b439ca29a60685c51c, type: 2}
   Stats: []
   BonusStatPoints: 
-  Moves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   Level: 0
   Controller: {fileID: 989761708}
   isAlive: 1
   Health: 0
   Mana: 0
   ActionPoints: 0
-  WaitingList: []
   State: 0
   TeamId: 0
 --- !u!1 &317799775
@@ -2222,12 +2210,10 @@ MonoBehaviour:
   Teams:
   - FieldMembers:
     - {fileID: 2136066247}
-    - {fileID: 156522638}
     ReserveMembers:
     - {fileID: 1924899090}
   - FieldMembers:
     - {fileID: 1924899090}
-    - {fileID: 232781754}
     ReserveMembers: []
   PlayerUnitController: {fileID: 1823294903}
   UnitControllers:
@@ -2341,18 +2327,12 @@ MonoBehaviour:
   Specie: {fileID: 11400000, guid: 2f3fc8a38716d1b439ca29a60685c51c, type: 2}
   Stats: []
   BonusStatPoints: 
-  Moves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   Level: 0
   Controller: {fileID: 989761708}
   isAlive: 1
   Health: 0
   Mana: 0
   ActionPoints: 0
-  WaitingList: []
   State: 0
   TeamId: 0
 --- !u!1 &1977876814
@@ -2441,17 +2421,11 @@ MonoBehaviour:
   Specie: {fileID: 11400000, guid: 2f3fc8a38716d1b439ca29a60685c51c, type: 2}
   Stats: []
   BonusStatPoints: 
-  Moves:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   Level: 0
   Controller: {fileID: 1823294903}
   isAlive: 1
   Health: 0
   Mana: 0
   ActionPoints: 0
-  WaitingList: []
   State: 0
   TeamId: 0

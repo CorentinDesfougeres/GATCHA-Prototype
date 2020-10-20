@@ -31,9 +31,10 @@ public class MoveBehaviour : ActorBehaviour
     }
 
 
-    public void Start()
+    public MoveBehaviour(UnitBehaviour _sourceUnit , MoveData _data)
     {
-        SourceUnit = GetComponent<UnitBehaviour>();
+        SourceUnit = _sourceUnit;
+        Data = _data;
     }
 
 }

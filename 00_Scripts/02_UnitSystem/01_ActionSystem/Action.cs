@@ -1,14 +1,11 @@
 using System;
 using UnityEngine;
-using Sirenix.Serialization;
-using Sirenix.OdinInspector;
 
 [Serializable]
-[ShowOdinSerializedPropertiesInInspector]
 public class Action
 {
-    [OdinSerialize] public Targeting Targeting;
-    [OdinSerialize]  public Effect Effect;
+    [SerializeReference] public Targeting Targeting;
+    [SerializeReference]  public Effect Effect;
 
     public void Declare()
     {

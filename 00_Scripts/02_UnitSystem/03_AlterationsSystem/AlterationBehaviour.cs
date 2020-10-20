@@ -8,8 +8,11 @@ class AlterationBehaviour : ActorBehaviour
 
     public UnitBehaviour Host;
 
-    public void OnEnable()
+    public AlterationBehaviour(UnitBehaviour _source , UnitBehaviour _host , AlterationData _data)
     {
+        SourceUnit = _source;
+        Host = _host;
+        Data = _data;
         foreach (Action action in Data.Actions)
         {
             action.Declare();
@@ -21,7 +24,7 @@ class AlterationBehaviour : ActorBehaviour
     }
 
     public event EventHandler OnLeave;
-    public void OnDisable()
+    public void OnDisable()  // attention c'est plus un monobehaviour !
     {
         if (OnLeave != null)
         {
