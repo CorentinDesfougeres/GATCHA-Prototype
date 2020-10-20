@@ -1,10 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
-using Sirenix.OdinInspector;
-using Sirenix.Serialization;
 
-[ShowOdinSerializedPropertiesInInspector]
+
 public class UnitBehaviour : MonoBehaviour
 {
     public UnitData Specie;
@@ -20,7 +18,7 @@ public class UnitBehaviour : MonoBehaviour
         }
     }
 
-    [OdinSerialize] public List<MoveBehaviour> Moves; //array plutot que liste ?
+    [SerializeReference] public List<MoveBehaviour> Moves; //array plutot que liste ?
 
     public int Level;
     private int experience;
@@ -40,7 +38,7 @@ public class UnitBehaviour : MonoBehaviour
 
     // Combat Behaviour :
 
-    public UnitControllerBehaviour Controller;
+    [SerializeReference] public UnitControllerBehaviour Controller;
 
     public bool isAlive;
     public int Health;
