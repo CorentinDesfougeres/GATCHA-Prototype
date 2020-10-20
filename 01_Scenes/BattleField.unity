@@ -328,12 +328,14 @@ MonoBehaviour:
   Specie: {fileID: 11400000, guid: 2f3fc8a38716d1b439ca29a60685c51c, type: 2}
   Stats: []
   BonusStatPoints: 
+  Moves: []
   Level: 0
   Controller: {fileID: 1823294903}
   isAlive: 1
   Health: 0
   Mana: 0
   ActionPoints: 0
+  WaitingList: []
   State: 0
   TeamId: 0
 --- !u!1 &232781751
@@ -383,12 +385,14 @@ MonoBehaviour:
   Specie: {fileID: 11400000, guid: 2f3fc8a38716d1b439ca29a60685c51c, type: 2}
   Stats: []
   BonusStatPoints: 
+  Moves: []
   Level: 0
   Controller: {fileID: 989761708}
   isAlive: 1
   Health: 0
   Mana: 0
   ActionPoints: 0
+  WaitingList: []
   State: 0
   TeamId: 0
 --- !u!1 &317799775
@@ -920,7 +924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c35d69ae7c6b247b2040fcf4f8c913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ControlledUnit: {fileID: 0}
 --- !u!1 &1063772731
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,7 +2266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d599121090eabf547a79ff92256485e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ControlledUnit: {fileID: 0}
 --- !u!4 &1823294904
 Transform:
   m_ObjectHideFlags: 0
@@ -2291,7 +2293,7 @@ GameObject:
   - component: {fileID: 1924899088}
   - component: {fileID: 1924899090}
   m_Layer: 0
-  m_Name: Unit1
+  m_Name: EnemyUnit1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2327,13 +2329,23 @@ MonoBehaviour:
   Specie: {fileID: 11400000, guid: 2f3fc8a38716d1b439ca29a60685c51c, type: 2}
   Stats: []
   BonusStatPoints: 
+  Moves:
+  - SourceUnit: {fileID: 1924899090}
+    Data: {fileID: 11400000, guid: ba56f50a7d48f784cb634b66438f76fa, type: 2}
+  - SourceUnit: {fileID: 1924899090}
+    Data: {fileID: 11400000, guid: ba56f50a7d48f784cb634b66438f76fa, type: 2}
+  - SourceUnit: {fileID: 1924899090}
+    Data: {fileID: 11400000, guid: ba56f50a7d48f784cb634b66438f76fa, type: 2}
+  - SourceUnit: {fileID: 1924899090}
+    Data: {fileID: 11400000, guid: ba56f50a7d48f784cb634b66438f76fa, type: 2}
   Level: 0
   Controller: {fileID: 989761708}
   isAlive: 1
   Health: 0
   Mana: 0
   ActionPoints: 0
-  State: 0
+  WaitingList: []
+  State: 2
   TeamId: 0
 --- !u!1 &1977876814
 GameObject:
@@ -2385,7 +2397,7 @@ GameObject:
   - component: {fileID: 2136066246}
   - component: {fileID: 2136066247}
   m_Layer: 0
-  m_Name: Unit1
+  m_Name: PlayerUnit1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2421,11 +2433,21 @@ MonoBehaviour:
   Specie: {fileID: 11400000, guid: 2f3fc8a38716d1b439ca29a60685c51c, type: 2}
   Stats: []
   BonusStatPoints: 
+  Moves:
+  - SourceUnit: {fileID: 2136066247}
+    Data: {fileID: 11400000, guid: ba56f50a7d48f784cb634b66438f76fa, type: 2}
+  - SourceUnit: {fileID: 2136066247}
+    Data: {fileID: 11400000, guid: ba56f50a7d48f784cb634b66438f76fa, type: 2}
+  - SourceUnit: {fileID: 2136066247}
+    Data: {fileID: 11400000, guid: ba56f50a7d48f784cb634b66438f76fa, type: 2}
+  - SourceUnit: {fileID: 2136066247}
+    Data: {fileID: 11400000, guid: ba56f50a7d48f784cb634b66438f76fa, type: 2}
   Level: 0
   Controller: {fileID: 1823294903}
   isAlive: 1
   Health: 0
   Mana: 0
   ActionPoints: 0
-  State: 0
+  WaitingList: []
+  State: 2
   TeamId: 0
