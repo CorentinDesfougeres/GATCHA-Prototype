@@ -15,21 +15,31 @@ MonoBehaviour:
   Name: Zone Damage
   Description: 
   PassiveEffects: []
-  DeclarationEffects: []
-  ExecutionEffects:
+  DeclarationEffects:
   - Targeting:
       id: 0
     Effect:
       id: 1
+  ExecutionEffects:
   - Targeting:
       id: 2
     Effect:
       id: 3
+  - Targeting:
+      id: 4
+    Effect:
+      id: 5
   references:
     version: 1
     00000000:
       type: {class: Self, ns: , asm: Assembly-CSharp}
     00000001:
+      type: {class: APCost, ns: , asm: Assembly-CSharp}
+      data:
+        Amount: 30
+    00000002:
+      type: {class: Self, ns: , asm: Assembly-CSharp}
+    00000003:
       type: {class: DirectDamage, ns: , asm: Assembly-CSharp}
       data:
         FlatDamage: 100
@@ -37,9 +47,9 @@ MonoBehaviour:
         Type: 0
         Element: 0
         Origine: 0
-    00000002:
+    00000004:
       type: {class: Self, ns: , asm: Assembly-CSharp}
-    00000003:
+    00000005:
       type: {class: DirectDamage, ns: , asm: Assembly-CSharp}
       data:
         FlatDamage: 10
