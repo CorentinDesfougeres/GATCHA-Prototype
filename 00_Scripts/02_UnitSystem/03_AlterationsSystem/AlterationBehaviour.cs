@@ -15,7 +15,7 @@ class AlterationBehaviour : ActorBehaviour
         Data = _data;
         foreach (Action action in Data.Actions)
         {
-            action.Declare();
+            action.Declare(this);
         }
         if (Data.Lifespan == AlterationLifespan.Combat && GameManager.Current.GameState == GameStateId.Combat)
         {

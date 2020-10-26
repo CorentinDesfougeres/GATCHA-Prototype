@@ -81,9 +81,9 @@ public class UnitBehaviour : MonoBehaviour
         }
     }
 
-    public void Declare()
+    public void Declare(MoveBehaviour move)
     {
-        WaitingList[0]?.Declare();
+        Debug.Log("UnitAct");
         State = UnitCombatState.preparation;
         Controller.OnMovePicked -= Declare;
     }

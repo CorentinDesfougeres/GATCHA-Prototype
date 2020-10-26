@@ -12,7 +12,7 @@ public class MoveBehaviour : ActorBehaviour
     {
         foreach (Action action in Data.PassiveEffects)
         {
-            action.Declare();
+            action.Declare(this);
         }
     }
 
@@ -20,7 +20,7 @@ public class MoveBehaviour : ActorBehaviour
     {
         foreach (Action action in Data.DeclarationEffects)
         {
-            action.Declare();
+            action.Declare(this);
         }
     }
 
@@ -28,7 +28,7 @@ public class MoveBehaviour : ActorBehaviour
     {
         foreach (Action action in Data.ExecutionEffects)
         {
-            action.Declare();
+            action.Declare(this);
         }
     }
 

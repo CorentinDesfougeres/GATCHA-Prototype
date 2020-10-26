@@ -36,7 +36,7 @@ MonoBehaviour:
     00000001:
       type: {class: APCost, ns: , asm: Assembly-CSharp}
       data:
-        Amount: 30
+        Amount: 300
     00000002:
       type: {class: Self, ns: , asm: Assembly-CSharp}
     00000003:

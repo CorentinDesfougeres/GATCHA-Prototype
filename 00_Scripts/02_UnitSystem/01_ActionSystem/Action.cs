@@ -6,13 +6,13 @@ public class Action
 {
     [SerializeReference] public Targeting Targeting;
     [SerializeReference]  public Effect Effect;
-
-    public void Declare()
+    
+    public void Declare(ActorBehaviour _source)
     {
-        //s'ajoute à la resolve liste du combatManager
+        CombatManager.Current.AddToResolveList(this, _source);
     }
 
-    public void Execute(ActorBehaviour _source)           //méthode appelée par la résolveliste
+    public void Execute(ActorBehaviour _source)
     {
         UnitBehaviour[] _targets = Targeting.Execute(_source);
         Effect.Execute(_source , _targets);

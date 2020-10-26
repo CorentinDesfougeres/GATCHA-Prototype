@@ -31,6 +31,7 @@ public class CombatManager : MonoBehaviour
     public List<UnitControllerBehaviour> UnitControllers;
 
     public List<UnitBehaviour> ActingUnits;
+    public List<ActionActorCouple> ResolveList;
 
     public void Update()
     {
@@ -51,6 +52,15 @@ public class CombatManager : MonoBehaviour
             ActingUnits[0].Act();
             ActingUnits.RemoveAt(0);
             State = CombatState.UnitTurn;
+        }
+        if (State == CombatState.ResolveList)
+        {
+            Debug.Log("Resolving");
+            while (ResolveList.Count != 0)
+            {
+                ResolveList[0].SavedAction.Execute(ResolveList[0].SavedActor);
+                ResolveList.RemoveAt(0);
+            }
         }
     }
 
@@ -166,5 +176,10 @@ public class CombatManager : MonoBehaviour
         {
             State = CombatState.Ticking;
         }
+    }
+
+    public void AddToResolveList(Action _action, ActorBehaviour _actor)
+    {
+        ResolveList.Insert(0 , new ActionActorCouple(_action, _actor));
     }
 }

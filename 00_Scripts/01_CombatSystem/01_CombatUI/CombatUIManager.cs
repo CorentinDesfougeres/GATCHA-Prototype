@@ -59,5 +59,12 @@ public class CombatUIManager : MonoBehaviour
     {
         //OnMoveSelected.Invoke(SelectedUnit.Moves[_id]);
         combatManager.PlayerUnitController.ProcessChoice(SelectedUnit.Moves[_id], SelectedUnit);
+        EndMoveSelection();
+    }
+    public void EndMoveSelection()
+    {
+        Debug.Log("EndMoveSelection");
+        isSelectionLocked = false;
+        ButtonBar.SetActive(false);
     }
 }

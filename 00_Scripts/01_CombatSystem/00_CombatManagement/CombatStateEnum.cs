@@ -2,5 +2,6 @@ public enum CombatState
 {
     Ticking,
     ActingList,
-    UnitTurn
+    UnitTurn,
+    ResolveList
 }

@@ -6,10 +6,10 @@ public abstract class UnitControllerBehaviour : MonoBehaviour
 {
     public abstract void PickAction(UnitBehaviour _unit);
 
-    public delegate void MovePickedHandler();
+    public delegate void MovePickedHandler(MoveBehaviour _move);
     public event MovePickedHandler OnMovePicked;
-    public void InvokeOnMovePicked()
+    public void InvokeOnMovePicked(MoveBehaviour _move)
     {
-        OnMovePicked?.Invoke();
+        OnMovePicked?.Invoke(_move);
     }
 }

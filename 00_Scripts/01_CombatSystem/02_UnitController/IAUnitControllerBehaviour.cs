@@ -8,8 +8,7 @@ public class IAUnitControllerBehaviour : UnitControllerBehaviour
     {
         Debug.Log("PickActionIA");
         int _rand = Random.Range(0 , GameManager.Current.GameParameters.nbMovePerSpirit);
-        _unit.WaitingList[0] = _unit.Moves[_rand];
-        InvokeOnMovePicked();
+        InvokeOnMovePicked(_unit.Moves[_rand]);
     }
 
 }
